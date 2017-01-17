@@ -1,0 +1,22 @@
+@(user: models.User)(content: Html)(implicit messages: Messages)
+
+@main(Some(user)) {
+  <div class="container" style="padding: 0; margin: 0">
+    <div class="row">
+      <div class="col-md-2" style="padding-left: 0">
+        <table class="dashboard-menu">
+          <tr><td><h4 class="glyphicon glyphicon-home"></h4></td><td><a href="@routes.WallController.getWall(None)" style="color: grey">Mój Żłobek</a></td></tr>
+          @if(User.isAdmin(user)) {
+            <tr><td><h4 class="glyphicon glyphicon-plus"></h4></td><td><a href="@routes.GalleryController.getAddGallery" style="color: grey"> Zdjęcia</a></td></tr>
+            <tr><td><h4 class="glyphicon glyphicon-list"></h4></td><td><a href="@routes.AppController.getAllUsersPage" style="color: grey"> Emaile</a></td></tr>
+          }
+        </table>
+      </div>
+      <div class="col-md-8">
+        @content
+      </div>
+      <div class="col-md-2">
+      </div>
+    </div>
+  </div>
+}

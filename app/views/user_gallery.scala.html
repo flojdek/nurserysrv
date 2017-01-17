@@ -1,0 +1,61 @@
+@(user: models.User)(implicit messages: Messages)
+
+@photo(relativePath: String, groupName: String) = {
+  <a class="gallery-photo" rel="@groupName" href="@routes.Assets.versioned(relativePath)">
+    <img src="@routes.Assets.versioned(relativePath)" width="30%" height="30%"/>
+  </a>
+}
+
+@dashboard(user) {
+  <span class="news_headline" href="#">2015.09.21</span>
+    @photo("images/zdjecia/20150921/20150921_112237.jpg", "panel_group8")
+  <p class="news_shortcut">
+  </p>
+  <span class="news_headline" href="#">2015.09.16</span>
+  <p class="news_shortcut">
+    @photo("images/zdjecia/20150916/20150916_100539.jpg", "panel_group7")
+    @photo("images/zdjecia/20150916/20150916_100527.jpg", "panel_group7")
+  </p>
+  <span class="news_headline" href="#">2015.09.15</span>
+  <p class="news_shortcut">
+    @photo("images/zdjecia/20150915/20150915_150606.jpg", "panel_group6")
+    @photo("images/zdjecia/20150915/20150915_150613.jpg", "panel_group6")
+    @photo("images/zdjecia/20150915/20150915_150602.jpg", "panel_group6")
+  </p>
+  <span class="news_headline" href="#">2015.09.14</span>
+  <p class="news_shortcut">
+    @photo("images/zdjecia/20150914/20150914_095002.jpg", "panel_group5")
+    @photo("images/zdjecia/20150914/20150914_095006.jpg", "panel_group5")
+    @photo("images/zdjecia/20150914/20150914_114251.jpg", "panel_group5")
+    @photo("images/zdjecia/20150914/20150914_114300.jpg", "panel_group5")
+  </p>
+  <span class="news_headline" href="#">2015.09.07</span>
+  <p class="news_shortcut">
+    @photo("images/zdjecia/20150907/20150907_100844.jpg", "panel_group4")
+    @photo("images/zdjecia/20150907/20150907_101033.jpg", "panel_group4")
+    @photo("images/zdjecia/20150907/20150907_101036.jpg", "panel_group4")
+  </p>
+  <span class="news_headline" href="#">2015.09.04</span>
+  <p class="news_shortcut">
+    @photo("images/zdjecia/20150904/20150904_091446.jpg", "panel_group3")
+    @photo("images/zdjecia/20150904/20150904_091450.jpg", "panel_group3")
+    @photo("images/zdjecia/20150904/20150904_091510.jpg", "panel_group3")
+    @photo("images/zdjecia/20150904/20150904_091650.jpg", "panel_group3")
+    @photo("images/zdjecia/20150904/20150904_092250.jpg", "panel_group3")
+  </p>
+  <span class="news_headline" href="#">2015.09.03</span>
+  <p class="news_shortcut">
+    @photo("images/zdjecia/20150903/20150903_151211.jpg", "panel_group2")
+    @photo("images/zdjecia/20150903/20150903_151228.jpg", "panel_group2")
+  </p>
+  <span class="news_headline" href="#">2015.09.02</span>
+  <p class="news_shortcut">
+    @photo("images/zdjecia/20150902/20150902_104300.jpg", "panel_group1")
+    @photo("images/zdjecia/20150902/20150902_112916.jpg", "panel_group1")
+    @photo("images/zdjecia/20150902/20150902_113900.jpg", "panel_group1")
+    @photo("images/zdjecia/20150902/20150902_093631.jpg", "panel_group1")
+    @photo("images/zdjecia/20150902/20150902_093622.jpg", "panel_group1")
+    @photo("images/zdjecia/20150902/20150902_104213.jpg", "panel_group1")
+    @photo("images/zdjecia/20150902/20150902_113921.jpg", "panel_group1")
+  </p>
+}

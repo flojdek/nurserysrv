@@ -1,0 +1,51 @@
+@(user: Option[models.User] = None)(implicit messages: Messages)
+
+@main(user) {
+  <center>
+    <table>
+      <tr>
+        <td>
+          <a class="gallery-photo" rel="group1" href="@routes.Assets.versioned("images/zlobek1-big.jpg")">
+            <img src="@routes.Assets.versioned("images/zlobek1-min.jpg")"/>
+          </a>
+        </td>
+        <td>
+          <a class="gallery-photo" rel="group1" href="@routes.Assets.versioned("images/zlobek2-big.jpg")">
+            <img src="@routes.Assets.versioned("images/zlobek2-min.jpg")"/>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a class="gallery-photo" rel="group1" href="@routes.Assets.versioned("images/zlobek3-big.jpg")">
+            <img src="@routes.Assets.versioned("images/zlobek3-min.jpg")"/>
+          </a>
+        </td>
+        <td>
+          <a class="gallery-photo" rel="group1" href="@routes.Assets.versioned("images/zlobek4-big.jpg")">
+            <img src="@routes.Assets.versioned("images/zlobek4-min.jpg")"/>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a class="gallery-photo" rel="group1" href="@routes.Assets.versioned("images/zlobek5-big.jpg")">
+            <img src="@routes.Assets.versioned("images/zlobek5-min.jpg")"/>
+          </a>
+        </td>
+        <td>
+          <a class="gallery-photo" rel="group1" href="@routes.Assets.versioned("images/zlobek6-big.jpg")">
+            <img src="@routes.Assets.versioned("images/zlobek6-min.jpg")"/>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a class="gallery-photo" rel="group1" href="@routes.Assets.versioned("images/zlobek7-big.jpg")">
+            <img src="@routes.Assets.versioned("images/zlobek7-min.jpg")"/>
+          </a>
+        </td>
+      </tr>
+    </table>
+  </center>
+}

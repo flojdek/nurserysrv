@@ -1,0 +1,18 @@
+@(user: Option[models.User] = None)(implicit messages: Messages)
+
+@main(user) {
+  <address class="text-center">
+  <h3>Niepubliczny Żłobek Małe Krasnale</h3>
+  <h3>ul. Częstochowska 8</h3>
+  <h3>54-033 Wrocław</h3>
+  <a class="larger-font" href="www.malekrasnale.pl">www.malekrasnale.pl</a><br/>
+  <a class="larger-font" href="mailto:malekrasnale@@o2.pl">malekrasnale@@o2.pl</a><br/>
+  <span class="larger-font">Tel. 531647985</span>
+  </address>
+
+  <p class="text-center">
+  <a target="_blank" href="https://www.google.co.uk/maps/place/Cz%C4%99stochowska+8,+Wroc%C5%82aw,+Poland/@@51.134208,16.8946669,17z/data=!3m1!4b1!4m2!3m1!1s0x470feaa9ba54aa0f:0xd729154a539f1d4d">
+    <img src="@routes.Assets.versioned("images/lokalizacja.png")"/>
+  </a>
+  </p>
+}

@@ -1,0 +1,7 @@
+@(user: models.User, allUsers: Seq[models.User])(implicit request: RequestHeader, messages: Messages)
+
+@dashboard(user) {
+  @for(user <- allUsers) {
+    <p><a href="/sciana/@user.email">@user.email</a></p>
+  }
+}

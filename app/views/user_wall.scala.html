@@ -1,0 +1,45 @@
+@import org.joda.time.format.DateTimeFormatter
+
+@(user: models.User, email: String, wall: models.Wall)(implicit messages: Messages,
+                                                                dtFormatter: DateTimeFormatter)
+
+@dashboard(user) {
+  <div id="wall">
+  @for(post <- wall.posts) {
+    @post.id.map { id =>
+      <div id="@id.stringify" class="post">
+        @post.title.map { title =>
+          <div class="news_headline"> @title
+            @if(User.isAdmin(user)) {
+              <a class="delete-post" href="/sciana/post/usun/@id.stringify">usuń</a>
+            }
+          </div>
+        }
+        <div class="pub_date">@dtFormatter.print(post.created)</div>
+        <p class="news_shortcut">@post.text</p>
+        <div>
+        @for(photo <- post.gallery.photos) {
+          <a rel="@dtFormatter.print(post.created)" href="@photo.photoUrl">
+            <img src="@photo.photoUrl"
+                 class="post-photo photo-box-shadow"
+                 width="200"
+                 height="150"
+                 @photo.title.map { t => title="@t" }
+                 />
+          </a>
+        }
+        </div>
+      </div>
+    }
+  }
+  </div><br/>
+  @if(!wall.posts.isEmpty) {
+    @wall.posts.last.id.map { id =>
+      <a id="wall-more" href="@routes.WallController.getWallJson(Some(id.stringify))">
+        <h4>Więcej...</h4>
+      </a>
+    }
+  }
+
+  <script src="@routes.Assets.versioned("javascripts/dashboard_wall.js")"></script>
+}

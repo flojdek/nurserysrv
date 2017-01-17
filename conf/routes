@@ -1,0 +1,37 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET    /                          controllers.AppController.getIndex
+GET    /onas                      controllers.AppController.getAbout
+GET    /galeria                   controllers.AppController.getGallery
+GET    /kontakt                   controllers.AppController.getContact
+GET    /cennik                    controllers.AppController.getPricing
+GET    /dokumenty                 controllers.AppController.getDocuments
+GET    /wyprawka                  controllers.AppController.getChildKit
+GET    /harmonogram               controllers.AppController.getSchedule
+GET    /users/all                 controllers.AppController.getAllUsers
+GET    /users/all/strona          controllers.AppController.getAllUsersPage
+
+DELETE /sciana/post/usun/:postID  controllers.WallController.removePost(postID: String)
+GET    /sciana                    controllers.WallController.getWall(lastPostID: Option[String] ?= None)
+GET    /json/sciana               controllers.WallController.getWallJson(lastPostID: Option[String] ?= None)
+GET    /sciana/:email             controllers.WallController.getWallByEmail(email, lastPostID: Option[String] ?= None)
+GET    /json/sciana/:email        controllers.WallController.getWallJsonByEmail(email, lastPostID: Option[String] ?= None)
+
+GET    /galeria/dodaj             controllers.GalleryController.getAddGallery
+POST   /galeria/dodaj             controllers.GalleryController.postAddGallery
+POST   /galeria/dodaj/zdjecie     controllers.GalleryController.postAddGalleryPhoto
+
+GET    /zaloguj                   controllers.AppController.getSignIn
+GET    /stworz                    controllers.AppController.getSignUp
+GET    /wyloguj                   controllers.AppController.getSignOut
+GET    /authenticate/:provider    controllers.SocialAuthController.authenticate(provider)
+POST   /authenticate/credentials  controllers.CredentialsAuthController.authenticate
+POST   /stworz                    controllers.SignUpController.signUp
+
+# Map static resources from the /public folder to the /assets URL path
+# ~~~~
+
+GET   /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET   /webjars/*file              controllers.WebJarAssets.at(file)

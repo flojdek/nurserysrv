@@ -1,0 +1,26 @@
+@(user: Option[models.User] = None, signUpForm: Form[forms.SignUpForm.Data])(implicit request: RequestHeader, messages: Messages)
+
+@import b3.inline.fieldConstructor
+
+@main(user) {
+  <div class="form-group padding-top-30px">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      @helper.form(action = routes.SignUpController.signUp()) {
+        @helper.CSRF.formField
+        @b3.email(signUpForm("email"),
+                  '_hiddenLabel -> Messages("Email"),
+                  'placeholder -> Messages("Email"),
+                  'class -> "form-control input-lg")
+        @b3.password(signUpForm("password"),
+                     '_hiddenLabel -> Messages("Hasło"),
+                     'placeholder -> Messages("Hasło"),
+                     'class -> "form-control input-lg")
+        <div class="form-group">
+          <button id="submit" type="submit" value="submit" class="btn btn-lg btn-primary btn-block">Utwórz konto</button>
+        </div>
+      }
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+}

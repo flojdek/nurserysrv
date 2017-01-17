@@ -1,0 +1,42 @@
+@(signInForm: Form[forms.SignInForm.Data], socialProviders: com.mohiva.play.silhouette.impl.providers.SocialProviderRegistry)(implicit request: RequestHeader, messages: Messages)
+
+@import b3.inline.fieldConstructor
+
+@main(None) {
+  @request.flash.get("error").map { msg =>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 alert alert-danger alert-error">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            @msg
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </div>
+  }
+  <div class="form-group">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      @helper.form(action = routes.CredentialsAuthController.authenticate()) {
+        @helper.CSRF.formField
+        @b3.text(signInForm("email"),
+                 '_hiddenLabel -> "Email",
+                 'placeholder -> "Email", 
+                 'class -> "form-control input-lg")
+        @b3.password(signInForm("password"),
+                     '_hiddenLabel -> "Hasło",
+                     'placeholder -> "Hasło",
+                     'class -> "form-control input-lg")
+        <div class="form-group">
+          <div>
+              <button id="submit" type="submit" value="submit" class="btn btn-lg btn-primary btn-block">
+                Zaloguj
+              </button>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+}

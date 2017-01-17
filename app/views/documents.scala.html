@@ -1,0 +1,52 @@
+@(user: Option[models.User] = None)(implicit messages: Messages)
+
+@main(user) {
+  <center>
+    <table class="text-center">
+      <tr>
+        <td>
+          <a href="@routes.Assets.versioned("images/formularz-rejestracyjny-dziecka-male-krasnale.pdf")">
+            <img class="document-front" src="@routes.Assets.versioned("images/formularz-rejestracyjny-dziecka-male-krasnale-front.jpg")"/>
+          </a>
+        </td>
+        <td>
+          <a href="@routes.Assets.versioned("images/protokol-ze-zgloszenia-male-krasnale.pdf")">
+            <img class="document-front" src="@routes.Assets.versioned("images/protokol-ze-zgloszenia-male-krasnale-front.jpg")"/>
+          </a>
+        </td>
+        <td>
+          <a href="@routes.Assets.versioned("images/regulamin-zlobka-male-krasnale.pdf")">
+            <img class="document-front" src="@routes.Assets.versioned("images/regulamin-zlobka-male-krasnale-front.jpg")"/>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td><h4>Formularz rejestracyjny<br/>dziecka</h4></td>
+        <td><h4>Protokół ze zgłoszenia dziecka do<br/>żłobka</h4></td>
+        <td><h4>Regulamin organizacyjny<br/>żłobka</h4></td>
+      </tr>
+      <tr>
+        <td>
+          <a href="@routes.Assets.versioned("images/statut-zlobka-male-krasnale.pdf")">
+            <img class="document-front" src="@routes.Assets.versioned("images/statut-zlobka-male-krasnale-front.jpg")"/>
+          </a>
+        </td>
+        <td>
+          <a href="@routes.Assets.versioned("images/umowa-godzinowa-male-krasnale.pdf")">
+            <img class="document-front" src="@routes.Assets.versioned("images/umowa-godzinowa-male-krasnale-front.jpg")"/>
+          </a>
+        </td>
+        <td>
+          <a href="@routes.Assets.versioned("images/umowa-przyjecia-male-krasnale.pdf")">
+            <img class="document-front" src="@routes.Assets.versioned("images/umowa-przyjecia-male-krasnale-front.jpg")"/>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td><h4>Statut żłobka</h4></td>
+        <td><h4>Umowa godzinowa przyjęcia<br/>dziecka</h4></td>
+        <td><h4>Umowa przyjęcia dziecka</h4></td>
+      </tr>
+    </table>
+  </center>
+}

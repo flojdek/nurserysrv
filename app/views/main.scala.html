@@ -1,0 +1,128 @@
+@(user: Option[models.User] = None)(content: Html)(implicit messages: Messages)
+
+<!DOCTYPE html>
+
+<html lang="pl">
+  <head>
+    <title>Żłobek Małe Krasnale dla dzieci - Złotniki, Wrocław</title>
+    <meta name="description" content="Niepubliczny żłobek Małe Krasnale dla dzieci we Wrocławiu na terenie dzielnicy Złotniki, czyli miejsce gdzie Wasze pociechy znajdą profesjonalną opiekę pod okiem wyspecjalizowanej kadry opiekunów.">
+    <meta name="keywords" content="żłobek,zlobek,wrocław,wroclaw,złotniki,zlotniki,dzieci,dziecko,przedszkole,opieka,pociechy,niepubliczny,maluchy,krasnal,krasnale,małe,male,szkoła,szkola">
+
+    <link href="@routes.WebJarAssets.at(WebJarAssets.fullPath("fancybox", "jquery.fancybox.css"))" rel="stylesheet" media="screen">
+    <!-- THIS DOES NOT WORK: <link href="@routes.WebJarAssets.at(WebJarAssets.fullPath("bootstrap", "css/bootstrap.min.css"))" rel="stylesheet" media="screen"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css">
+    <link href="@routes.WebJarAssets.at(WebJarAssets.fullPath("bootstrap-tagsinput", "bootstrap-tagsinput.css"))" rel="stylesheet" media="screen">
+    <link href="@routes.WebJarAssets.at(WebJarAssets.fullPath("dropzone", "dropzone.css"))" rel="stylesheet" media="screen">
+    <link href="@routes.WebJarAssets.at(WebJarAssets.fullPath("Pikaday", "pikaday.css"))" rel="stylesheet" media="screen">
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Merienda+One">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu">
+    <link href='https://fonts.googleapis.com/css?family=Sniglet:800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+    <link rel="icon" type="image/png" href="@routes.Assets.versioned("images/logo.png")">
+
+    <script src="@routes.WebJarAssets.at(WebJarAssets.fullPath("jquery", "jquery.min.js"))"></script>
+    <!-- THIS DOES NOT WORK: <script src="@routes.WebJarAssets.at(WebJarAssets.fullPath("bootstrap", "js/bootstrap.min.js"))"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="@routes.WebJarAssets.at(WebJarAssets.fullPath("bootstrap-tagsinput", "bootstrap-tagsinput.js"))"></script>
+    <script src="@routes.WebJarAssets.at(WebJarAssets.fullPath("typeaheadjs", "typeahead.bundle.js"))"></script>
+    <script src="@routes.WebJarAssets.at(WebJarAssets.fullPath("handlebars", "handlebars.js"))"></script>
+    <script src="@routes.WebJarAssets.at(WebJarAssets.fullPath("json2", "json2.js"))"></script>
+    <script src="@routes.WebJarAssets.at(WebJarAssets.fullPath("momentjs", "moment.js"))"></script>
+  </head>
+  <body>
+
+    <!-- 1. Ankieta na stronie o programowaniu dla dzieci. -->
+    <!-- 2. Ankieta na stronie o programowaniu dla dzieci. -->
+
+    <nav class="navbar navbar-default" style="padding-bottom: 0; margin-bottom: 0">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-10"
+               style="padding-left: 0">
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse"
+                 id="bs-example-navbar-collapse-1"
+                 style="padding-left: 0">
+              <ul class="nav navbar-nav" style="padding-top: 8px">
+                <li>
+                  <a style="padding: 0; margin: 0; padding-right: 10px; padding-bottom: 5px" href="/">
+                    <img src="@routes.Assets.versioned("images/logo.png")"/>
+                  </a>
+                </li>
+                <li><a style="padding-top: 14px" href="/">O nas</a></li>
+                <li><a style="padding-top: 14px" href="/galeria">Galeria</a></li>
+                <li><a style="padding-top: 14px" href="/wyprawka">Wyprawka</a></li>
+                <li><a style="padding-top: 14px" href="/dokumenty">Dokumenty</a></li>
+                <li><a style="padding-top: 14px" href="/harmonogram">Harmonogram</a></li>
+                <li><a style="padding-top: 14px" href="/cennik">Cennik</a></li>
+                <li><a style="padding-top: 14px" href="/kontakt">Kontakt</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div>
+
+          <div class="col-md-2">
+            <ul class="nav navbar-nav navbar-right text-right">
+              @user.map { u =>
+                <li style="padding-top: 8px">
+                  <a href="@routes.WallController.getWall(None)">Panel</a>
+                </li>
+                <li>
+                  <a href="@routes.AppController.getSignOut" style="padding-right: 0"><button class="btn btn-success">Wyloguj</button></a>
+                </li>
+              }.getOrElse {
+                <li><a href="@routes.AppController.getSignIn" style="padding-right: 0">
+                  <button class="btn btn-success">Zaloguj</button>
+                </a></li>
+              }
+            </ul><!-- /.nav navbar-nav navbar-right -->
+          </div>
+
+        </div>
+      </div><!-- /.container -->
+    </nav>
+
+    <div class="container" style="width: 100%; margin-bottom: 20px">
+      <div class="row" style="height: 120px; background-color: #99ff66">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 text-center" style="padding-top: 15px">
+          <img src="@routes.Assets.versioned("images/logo-napis-malekrasnale-max.jpg")"/>
+        </div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+
+    <div class="container" style="background-color: #f8f8f8">
+      @content
+    </div>
+
+    <br/>
+    <hr class="footer-hr"/>
+
+    <div class="container footer">
+      <div class="row">
+        <div class="col-md-10">
+          <footer>
+            <p style="font-size: small">
+            Małe Krasnale &copy; 2015 Wykonanie <a target="_blank" href="http://www.typesane.com">TypeSane Ltd</a>
+            </p>
+          </footer>
+        </div>
+        <div class="col-md-2 text-right" style="padding-right: 0; margin-right: 0">
+            <a style="font-size: small" href="/">Strona Główna</a>
+        </div>
+      </div>
+    </div>
+
+    <br/>
+
+    <script src="@routes.WebJarAssets.at(WebJarAssets.locate("jquery.fancybox.pack.js"))"></script>
+    <script src="@routes.Assets.versioned("javascripts/main.js")"></script>
+  </body>
+</html>
+
+<!--<span style="font-family: 'Sniglet', cursive; font-size: 90%">
+<span style="color: #cc6699">M</span><span style="color: #0066cc">A</span><span style="color: #00cc00">Ł</span><span style="color: #ff420e">E</span> <span style="color: #6666ff">K</span><span style="color: #ff6666">R</span><span style="color: #ff3300">A</span><span style="color: #0066cc">S</span><span style="color: #00cc33">N</span><span style="color: #ff950e">A</span><span style="color: #9966cc">L</span><span style="color: #ff3399">E</span>
+</span>-->
